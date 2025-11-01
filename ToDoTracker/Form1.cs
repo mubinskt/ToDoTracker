@@ -12,21 +12,29 @@ namespace ToDoTracker
 {
     public partial class Form1 : Form
     {
+        private TaskManager taskManager;
+
         public Form1()
         {
             InitializeComponent();
+            
+            // Initialize TaskManager
+            taskManager = new TaskManager();
 
-            TaskManager taskManager = new TaskManager();
-
+            // Create a sample task
             ToDoTask task1 = new ToDoTask();
             task1.Task = "Get the Assignment out";
+            taskManager.ToDoTasks.Add(task1);
 
-            taskManager.ToDoTasks.Add(new ToDoTask());
+            // Set up the binding source directly
+            dataGridViewTasks.DataSource = taskManager.ToDoTasks;
+        }
 
-            bindingSource1.DataSource = taskManager.ToDoTasks;
-
-            BindingList<ToDoTask>  tasks = new BindingList<ToDoTask>();
-            dataGridView1.DataSource = tasks;
+        private void AddTask(ToDoTask task)
+        {
+            //var tasks = (List<ToDoTask>)taskBindingSource.DataSource ?? new List<ToDoTask>();
+            //tasks.Add(task);
+            //taskBindingSource.DataSource = tasks;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -34,7 +42,13 @@ namespace ToDoTracker
 
         }
 
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+
+        private void buttonAddTask_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDeleteTask_Click(object sender, EventArgs e)
         {
 
         }
