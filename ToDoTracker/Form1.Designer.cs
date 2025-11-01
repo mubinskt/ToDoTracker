@@ -38,20 +38,25 @@ namespace ToDoTracker
             // 
             // dataGridViewTasks
             // 
+            this.dataGridViewTasks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTasks.Location = new System.Drawing.Point(114, -1);
+            this.dataGridViewTasks.Location = new System.Drawing.Point(114, 12);
             this.dataGridViewTasks.Name = "dataGridViewTasks";
             this.dataGridViewTasks.RowHeadersWidth = 51;
             this.dataGridViewTasks.RowTemplate.Height = 24;
-            this.dataGridViewTasks.Size = new System.Drawing.Size(686, 448);
+            this.dataGridViewTasks.Size = new System.Drawing.Size(674, 426);
             this.dataGridViewTasks.TabIndex = 2;
             this.dataGridViewTasks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(21, 116);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(12, 116);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(90, 28);
             this.button1.TabIndex = 3;
             this.button1.Text = "Add Task";
             this.button1.UseVisualStyleBackColor = true;
@@ -59,9 +64,10 @@ namespace ToDoTracker
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(21, 248);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(12, 248);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(90, 28);
             this.button2.TabIndex = 4;
             this.button2.Text = "Delete Task";
             this.button2.UseVisualStyleBackColor = true;
@@ -69,9 +75,10 @@ namespace ToDoTracker
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(21, 182);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.Location = new System.Drawing.Point(12, 182);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(90, 28);
             this.button3.TabIndex = 5;
             this.button3.Text = "Modify Task";
             this.button3.UseVisualStyleBackColor = true;
@@ -82,6 +89,7 @@ namespace ToDoTracker
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
