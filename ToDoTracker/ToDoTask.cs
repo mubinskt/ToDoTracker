@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace ToDoTracker
 {
@@ -21,10 +22,21 @@ namespace ToDoTracker
         Completed
     }
 
+    [Serializable]
     public class ToDoTask
     {
+        public ToDoTask()
+        {
+            // Default constructor required for XML serialization
+            StartDateTime = DateTime.Now;
+            EndDateTime = DateTime.Now.AddDays(1);
+            TaskPriority = TaskPriority.Medium;
+            TaskState = TaskState.Created;
+        }
+
         [Description("The title or name of the task")]
         [Category("Basic")]
+        [XmlElement("Title")]
         public string Task { get; set; }
 
         [Description("Detailed description of what needs to be done")]

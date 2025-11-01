@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ToDoTracker
@@ -18,13 +11,8 @@ namespace ToDoTracker
         {
             InitializeComponent();
 
-            // Initialize TaskManager
+            // Initialize TaskManager - it will automatically load saved tasks
             taskManager = new TaskManager();
-
-            // Create a sample task
-            ToDoTask task1 = new ToDoTask();
-            task1.Task = "Get the Assignment out";
-            taskManager.ToDoTasks.Add(task1);
 
             // Set up the binding source directly
             dataGridViewTasks.DataSource = taskManager.ToDoTasks;
