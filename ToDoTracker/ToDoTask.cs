@@ -22,17 +22,17 @@ namespace ToDoTracker
 
     class ToDoTask
     {
-        string Task { get; set; }
+        public string Task { get; set; }
 
-        string Description { get; set; }
+        public string Description { get; set; }
 
-        TaskPriority TaskPriority { get; set; } = TaskPriority.Medium;
+        public TaskPriority TaskPriority { get; set; } = TaskPriority.Medium;
 
-        DateTime StartDateTime { get; set; }
+        public DateTime StartDateTime { get; set; }
 
-        DateTime EndDateTime { get; set; }
+        public DateTime EndDateTime { get; set; }
 
-        TaskState taskState { get; set; } = TaskState.Created;
+        public TaskState taskState { get; set; } = TaskState.Created;
 
     }
 }
