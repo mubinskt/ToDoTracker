@@ -10,11 +10,35 @@ using System.Windows.Forms;
 
 namespace ToDoTracker
 {
-    public partial class PropertyEditor : UserControl
+    public partial class PropertyEditor : Form
     {
+        private ToDoTask _task;
+        
+        public ToDoTask Task
+        {
+            get { return _task; }
+        }
+
         public PropertyEditor()
         {
             InitializeComponent();
+            _task = new ToDoTask();
+            
+            // Set the PropertyGrid's selected object to the task
+            propertyGrid.SelectedObject = _task;
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            // The properties are already updated through the PropertyGrid
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

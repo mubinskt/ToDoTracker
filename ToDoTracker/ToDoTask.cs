@@ -1,38 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ToDoTracker
 {
-    enum TaskPriority
+    public enum TaskPriority
     {
         High,
         Medium,
         Low
     }
 
-    enum TaskState
+    public enum TaskState
     {
         Created,
         Pending,
         Completed
     }
 
-    class ToDoTask
+    public class ToDoTask
     {
+        [Description("The title or name of the task")]
+        [Category("Basic")]
         public string Task { get; set; }
 
+        [Description("Detailed description of what needs to be done")]
+        [Category("Basic")]
         public string Description { get; set; }
 
+        [Description("The priority level of this task")]
+        [Category("Status")]
         public TaskPriority TaskPriority { get; set; } = TaskPriority.Medium;
 
-        public DateTime StartDateTime { get; set; }
+        [Description("When the task should begin")]
+        [Category("Scheduling")]
+        public DateTime StartDateTime { get; set; } = DateTime.Now;
 
-        public DateTime EndDateTime { get; set; }
+        [Description("When the task should be completed")]
+        [Category("Scheduling")]
+        public DateTime EndDateTime { get; set; } = DateTime.Now.AddDays(1);
 
-        public TaskState taskState { get; set; } = TaskState.Created;
+        [Description("Current state of the task")]
+        [Category("Status")]
+        public TaskState TaskState { get; set; } = TaskState.Created;
 
     }
 }

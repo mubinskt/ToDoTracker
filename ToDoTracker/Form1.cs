@@ -45,7 +45,13 @@ namespace ToDoTracker
 
         private void buttonAddTask_Click(object sender, EventArgs e)
         {
-
+            using (PropertyEditor editor = new PropertyEditor())
+            {
+                if (editor.ShowDialog() == DialogResult.OK)
+                {
+                    taskManager.ToDoTasks.Add(editor.Task);
+                }
+            }
         }
 
         private void buttonDeleteTask_Click(object sender, EventArgs e)
