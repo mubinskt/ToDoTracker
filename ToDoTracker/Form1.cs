@@ -65,9 +65,39 @@ namespace ToDoTracker
                 MessageBox.Show("Please select a task to delete.", "No Task Selected",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
+
+        private void buttonModifyTask_Click(object sender, EventArgs e)
+        {
+            // Check if a task is selected
+            if (dataGridViewTasks.CurrentRow != null)
+            {
+                ToDoTask selectedTask = (ToDoTask)dataGridViewTasks.CurrentRow.DataBoundItem;
+
+                using (PropertyEditor editor = new PropertyEditor(selectedTask))
+                {
+                    if (editor.ShowDialog() == DialogResult.OK)
+                    {
+                        // Update all properties of the selected task
+                        selectedTask.Task = editor.Task.Task;
+                        selectedTask.Description = editor.Task.Description;
+                        selectedTask.TaskPriority = editor.Task.TaskPriority;
+                        selectedTask.StartDateTime = editor.Task.StartDateTime;
+                        selectedTask.EndDateTime = editor.Task.EndDateTime;
+                        selectedTask.TaskState = editor.Task.TaskState;
+
+                        // Refresh the grid
+                        dataGridViewTasks.Refresh();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a task to modify.", "No Task Selected",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
 
