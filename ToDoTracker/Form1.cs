@@ -17,7 +17,7 @@ namespace ToDoTracker
         public Form1()
         {
             InitializeComponent();
-            
+
             // Initialize TaskManager
             taskManager = new TaskManager();
 
@@ -56,7 +56,30 @@ namespace ToDoTracker
 
         private void buttonDeleteTask_Click(object sender, EventArgs e)
         {
+            // Check if a task is selected
+            if (dataGridViewTasks.CurrentRow != null)
+            {
+                ToDoTask selectedTask = (ToDoTask)dataGridViewTasks.CurrentRow.DataBoundItem;
+
+                // Show confirmation dialog
+                string message = $"Are you sure you want to delete the task:\n\"{selectedTask.Task}\"?";
+                var result = MessageBox.Show(message, "Confirm Delete",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                // Delete if user confirms
+                if (result == DialogResult.Yes)
+                {
+                    taskManager.ToDoTasks.Remove(selectedTask);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a task to delete.", "No Task Selected",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
+
     }
 }
+

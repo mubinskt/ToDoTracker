@@ -25,10 +25,10 @@ namespace ToDoTracker
             return true;
         }
 
-        public bool DeleteTask()
+        public bool DeleteTask(ToDoTask task)
         {
-
-            return false;
+            if (task == null) return false;
+            return toDoTasks.Remove(task);
         }
 
         private void LoadTasks()
